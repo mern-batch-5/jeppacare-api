@@ -8,6 +8,14 @@ app.use(express.json());
 
 // Import Routes
 const userRoutes = require("./route/userRoutes");
+const admissionRoutes = require("./route/admissionRoutes");
+const appointmentRoutes = require("./route/appointmentRoutes");
+const billingRoutes = require("./route/billingRoutes");
+const labRoutes = require("./route/labRoutes");
+const medicalRecordRoutes = require("./route/medicalRecordRoutes");
+const medicineRoutes = require("./route/medicineRoutes");
+const patientRoutes = require("./route/patientRoutes");
+const prescriptionRoutes = require("./route/prescriptionRoutes");
 
 // Database Connection
 mongoose
@@ -21,13 +29,14 @@ mongoose
 
 // /api/users → userRoutes
 app.use("/api/users", userRoutes);
-
-// Add more routes later:
-// app.use("/api/patients", patientRoutes);
-// app.use("/api/appointments", appointmentRoutes);
-// app.use("/api/lab", labRoutes);
-// app.use("/api/pharmacy", pharmacyRoutes);
-// app.use("/api/billing", billingRoutes);
+app.use("/api/admissions", admissionRoutes);
+app.use("/api/appointments", appointmentRoutes);
+app.use("/api/billing", billingRoutes);
+app.use("/api/lab", labRoutes);
+app.use("/medical-record", medicalRecordRoutes);
+app.use("/api/medicine", medicineRoutes);
+app.use("/api/patients", patientRoutes);
+app.use("/api/prescriptions", prescriptionRoutes);
 
 // ---------------------
 //   ROOT ENDPOINT
